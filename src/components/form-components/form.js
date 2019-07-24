@@ -1,95 +1,82 @@
-import React, { useState } from 'react'
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+import React from 'react'
+import { Button, Form } from 'semantic-ui-react'
 
-const CreateForm = () => {
-
-    const [memberInfo, setMemberInfo] = useState({
-        firstName:'',
-        aka:'',
-        lastName:'',
-        age:'',
-        hobby:'',
-        favoriteDrink: '',
-        favoriteFood:''
-      })
-
-    const handleChange = (event => {
-        const updatedUser = {...memberInfo, [event.target.name]: event.target.value}
-        setMemberInfo(updatedUser)
-        console.log(memberInfo)
-    })
-
-    const handleSubmit = (event) => {
-        event.preventDefault()
-    }
-
+const CreateForm = ({personInfo, handleChangeFunc, handleSubmitFunc}) => {
     return(
-    <Form onSubmit={handleSubmit}>
-    <Form.Field>
-      <label>First Name</label>
+        <Form onSubmit={handleSubmitFunc}>
+        <Form.Field>
+        <label>First Name</label>
       <input 
       placeholder='First Name'
       type = 'text'
-      value = {memberInfo.firstName}
+      value = {personInfo.firstName}
       name = 'firstName'
-      onChange = {handleChange} />
-    </Form.Field>
-    <Form.Field>
+      onChange = {handleChangeFunc} />
+      </Form.Field>
+      <Form.Field>
       <label>Last Name</label>
       <input 
       placeholder='Last Name' 
       type = 'text'
-      value = {memberInfo.lastName}
+      value = {personInfo.lastName}
       name = 'lastName'
-      onChange = {handleChange}/>
-    </Form.Field>
-    <Form.Field>
+      onChange = {handleChangeFunc}/>
+      </Form.Field>
+      <Form.Field>
       <label>Nick Name</label>
       <input 
       placeholder='Nick Name'
       type = 'text'
-      value = {memberInfo.aka}
+      value = {personInfo.aka}
       name = 'aka'
-      onChange = {handleChange} />
-    </Form.Field>
-    <Form.Field>
+      onChange = {handleChangeFunc} />
+      </Form.Field>
+      <Form.Field>
       <label>Age</label>
       <input 
       placeholder='Age'
       type = 'text'
-      value = {memberInfo.age}
+      value = {personInfo.age}
       name = 'age'
-      onChange = {handleChange} />
-    </Form.Field>
-    <Form.Field>
+      onChange = {handleChangeFunc} />
+      </Form.Field>
+      <Form.Field>
+      <label>Role</label>
+      <input placeholder='Role' 
+      type = 'text'
+      value = {personInfo.role}
+      name = 'role'
+      onChange = {handleChangeFunc}/>
+      </Form.Field>
+      <Form.Field>
       <label>Hobby</label>
       <input placeholder='Hobby' 
       type = 'text'
-      value = {memberInfo.hobby}
+      value = {personInfo.hobby}
       name = 'hobby'
-      onChange = {handleChange}/>
-    </Form.Field>
-    <Form.Field>
+      onChange = {handleChangeFunc}/>
+      </Form.Field>
+      <Form.Field>
       <label>Favorite Drink</label>
       <input 
       placeholder='Favorite Drink' 
       type = 'text'
-      value = {memberInfo.favoriteDrink}
+      value = {personInfo.favoriteDrink}
       name = 'favoriteDrink'
-      onChange = {handleChange}/>
-    </Form.Field>
-    <Form.Field>
+      onChange = {handleChangeFunc}/>
+      </Form.Field>
+      <Form.Field>
       <label>Favorite Food</label>
       <input 
       placeholder='Favorite Food'
       type = 'text'
-      value = {memberInfo.favoriteFood}
+      value = {personInfo.favoriteFood}
       name = 'favoriteFood'
-      onChange = {handleChange} />
+      onChange = {handleChangeFunc} />
     </Form.Field>
     <Button type='submit'>Submit</Button>
-  </Form>
-
-)}
-
-export default CreateForm
+    </Form>
+    
+    )
+    }
+    export default CreateForm
