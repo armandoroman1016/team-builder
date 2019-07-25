@@ -1,5 +1,5 @@
 import React , { useState } from 'react';
-import './App.css';
+import './App.scss';
 import 'semantic-ui-css/semantic.min.css'
 import CreateForm from './components/form-components/form'
 import CardList from './components/team-member-components/team-member-card-list'
@@ -34,8 +34,10 @@ function App() {
     <div className="App">
         <h1 onClick= {() => console.log(teamMembers)}>Lambda Team Members</h1>
         <CreateForm personInfo = {memberInfo} handleChangeFunc = {handleChange} handleSubmitFunc = {handleSubmit}/>
-        <div>
+        <div className = 'members-container'>
+  
         <CardList membersArr = {members}/>
+        
         </div>
         <div>
       </div>
